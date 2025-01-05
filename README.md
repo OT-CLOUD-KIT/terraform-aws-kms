@@ -9,38 +9,36 @@ The module manages AWS Key Management Service (KMS) keys and their associated re
 
  The module appears to be defining and managing AWS KMS (Key Management Service) resources, including keys, aliases, and grants.
 
- - It provisions AWS KMS keys (aws_kms_key.this) with various configurations such as key specifications (customer_master_key_spec), deletion window, key rotation settings, and policies.
+* It provisions AWS KMS keys (aws_kms_key.this) with various configurations such as key specifications (customer_master_key_spec), deletion window, key rotation settings, and policies.
 
- - Manages IAM policies associated with the KMS keys through the data "aws_iam_policy_document" blocks.These policies define who (principals) can perform actions on which resources.
+* Manages IAM policies associated with the KMS keys through the data "aws_iam_policy_document" blocks.These policies define who (principals) can perform actions on which resources.
 
- - Creates AWS KMS aliases (aws_kms_alias.this) based on configured aliases (var.aliases) and computed aliases (var.computed_aliases). Allows setting alias names with or without name prefixes based on var.aliases_use_name_prefix.
+* Creates AWS KMS aliases (aws_kms_alias.this) based on configured aliases (var.aliases) and computed aliases (var.computed_aliases). Allows setting alias names with or without name prefixes based on var.aliases_use_name_prefix.
 
- - Manages grants (aws_kms_grant.this) that delegate specific permissions (operations) on KMS keys to specified IAM principals (grantee_principal).
+* Manages grants (aws_kms_grant.this) that delegate specific permissions (operations) on KMS keys to specified IAM principals (grantee_principal).
 
- - Grants can optionally define constraints (constraints), retiring principals (retiring_principal), grant creation tokens (grant_creation_tokens), and retirement behavior (retire_on_delete).
+* Grants can optionally define constraints (constraints), retiring principals (retiring_principal), grant creation tokens (grant_creation_tokens), and retirement behavior (retire_on_delete).
 
 # Plan of Approach
 
-**1.Design**
+**1. Design**
 
 - The purpose of the Terraform module designed for AWS KMS (Key Management Service) is to facilitate the creation, configuration, and management of cryptographic keys within AWS environments.
 
-1.Key Creation and Configuration: Enable users to define and provision AWS KMS keys with specific attributes such as key type, size, rotation policies, and deletion safeguards.
+  1. **Key Creation and Configuration:** Enable users to define and provision AWS KMS keys with specific attributes such as key type, size, rotation policies, and deletion safeguards.
 
-2.Policy Management: Implement flexible IAM policy management to enforce access controls and permissions for KMS keys across different roles and users.
+  2. **Policy Management:** Implement flexible IAM policy management to enforce access controls and permissions for KMS keys across different roles and users.
 
-3.Alias Management: Creation and management of aliases for KMS keys, providing easy-to-remember names or endpoints to reference keys.
+  3. **Alias Management:** Creation and management of aliases for KMS keys, providing easy-to-remember names or endpoints to reference keys.
 
-4.Grant Permissions: Enable the delegation of permissions for specific operations to other AWS services or IAM principals, with optional constraints for enhanced security.
+  4. **Grant Permissions:** Enable the delegation of permissions for specific operations to other AWS services or IAM principals, with optional constraints for enhanced security.
 
 
 
-**2.How will we test it?**
-
+**2. How will we test it?**
 - Develop unit tests to validate module functionality in isolated environments.
 
 **3.Special Consideration**
-
 - For tags variables, there is no need to pass any values. This tags will receive its value from the pipeline.
 
 **Requirements**
@@ -178,7 +176,3 @@ No modules.
 - https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html
 
 - https://docs.aws.amazon.com/kms/latest/developerguide/best-practices.html
-
-
-
-
