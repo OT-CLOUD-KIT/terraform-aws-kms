@@ -16,7 +16,6 @@ output "name" {
   value       = try(aws_kms_alias.this.name, null)
 }
 
-
 output "key_policy" {
   description = "The IAM resource policy set on the key"
   value       = try(aws_kms_key.this[0].policy, aws_kms_external_key.this[0].policy, aws_kms_replica_key.this[0].policy, aws_kms_replica_external_key.this[0].policy, null)
@@ -40,7 +39,6 @@ output "external_key_usage" {
 #-------------------------------------------------------------------------------
 # Alias
 #-------------------------------------------------------------------------------
-
 output "aliases" {
   description = "A map of aliases created and their attributes"
   value       = aws_kms_alias.this
@@ -49,7 +47,6 @@ output "aliases" {
 #-------------------------------------------------------------------------------
 # Grant
 #-------------------------------------------------------------------------------
-
 output "grants" {
   description = "A map of grants created and their attributes"
   value       = aws_kms_grant.this
