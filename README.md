@@ -5,6 +5,8 @@ A Terraform module to create and manage AWS KMS keys (symmetric or asymmetric), 
 
 ## Architecture
 
+![KMS](https://github.com/user-attachments/assets/7893fc64-d84e-4928-b854-9182bd836298)
+
 > **Note** :
    This diagram illustrates a standard symmetric key deployment with alias and grant setup. This module supports:
    - Internal and external keys
@@ -232,6 +234,12 @@ ___
 
 
 ## Contributors
+
+- [Piyush Upadhyay](https://github.com/piiiyuushh)
+- [Nikita Joshi](https://github.com/jnikita19)
+
+
+
 
 - [Piyush Upadhyay](https://github.com/piiiyuushh)
 - [Nikita Joshi](https://github.com/jnikita19)
