@@ -20,7 +20,7 @@ module "naming" {
 
 
 module "kms" {
-  source = "../"
+  source = "git@github.com:OT-CLOUD-KIT/terraform-aws-kms.git?ref=Feature"
 
   # General
   create_kms       = var.create_kms
