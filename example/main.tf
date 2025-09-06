@@ -1,24 +1,3 @@
-module "standard_tags" {
-  source = "git@github.com:OT-CLOUD-KIT/terraform-aws-standard-tagging.git?ref=dev"
-
-  bu      = var.bu
-  program = var.program
-  app     = var.app
-  team    = var.team
-  region  = var.region
-  env     = var.env
-}
-
-module "naming" {
-  source   = "git@github.com:OT-CLOUD-KIT/terraform-aws-naming.git?ref=dev"
-  bu       = var.bu
-  env      = var.env
-  app      = var.app
-  resource = var.resource
-}
-
-
-
 module "kms" {
   source = "git@github.com:OT-CLOUD-KIT/terraform-aws-kms.git?ref=Feature"
 
@@ -28,13 +7,9 @@ module "kms" {
   create_replica   = var.create_replica
   create_replica_external = var.create_replica_external
   name       = module.naming.naming_tag[0]
-
-  bu      = var.bu
-  program = var.program
-  app     = var.app
-  env     = var.env
-  team    = var.team
-  region  = var.region
+  env = var.env
+  owner = var.owner
+  app = var.app
 
   # KMS key config
   bypass_policy_lockout_safety_check = var.bypass_policy_lockout_safety_check
